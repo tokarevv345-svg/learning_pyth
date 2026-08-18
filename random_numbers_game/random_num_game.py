@@ -1,0 +1,68 @@
+
+# requirement: pip install colorama
+
+import random
+from colorama import Fore, init, Style
+green = Fore.GREEN
+red = Fore.RED
+end = Style.RESET_ALL
+list = []
+att_times = 0
+a = None
+current = random.randint(1, 100)
+print("загаданно число от 1 до 100 - угадай его !")
+def testnum():
+    err = True
+    global list
+    a = input("введите число: ") #str
+    if a == "стоп":
+        quit()
+    try:
+        a = float(a) 
+        if a < 1 or a > 100:
+            raise ValueError
+        if a in list:
+            print("повтор числа!")
+            raise ValueError
+        list.append(a)
+    except:
+        while err != False:
+            print(red + "! ВАШЕ ЧИСЛО НЕ СООТВЕТСТВУЕТ УСЛОВИЯМ !" + end)
+            print('------------------------')
+            a = input("введите число: ") #str
+            if a == "стоп":
+                quit()
+            try:
+                a = float(a) #float
+                if a < 1 or a > 100:
+                    raise ValueError
+                elif a in list:
+                    print("повтор числа!")
+                    raise ValueError     
+                else:
+                    err = False
+                list.append(a)
+            except:
+                err = True
+    return a
+    
+def num_check():
+    if a == current:
+        print(green + "******* ! ВЫ УГАДАЛИ ЧИСЛО ! ********" + end)
+        print(f"загаданное число: {current}")
+    else:
+        print(red + "! ВЫ НЕ УГАДАЛИ ЧИСЛО !" + end)
+        if a < current:
+            print("~ загаданное число больше ~")
+        if a > current:
+            print("~ загаданное число меньше ~")
+        print("------------------------")
+        
+while a != current:
+    a = testnum()
+    att_times += 1
+    num_check()
+
+print("список ваших попыток: ")
+print(list)
+print(f"ваше кол-во попыток: {att_times}")
