@@ -95,10 +95,63 @@ class devolper:
         self.ai = ai
         print(f"разваботчик по имени {self.name} пишет на языке {self.lang} при помощи {self.ai}")
             
-print("~")
-dev1 = devolper("Igor", "Python")
-print("~")
-dev2 = devolper("Anton", "C++", "Codex")
-print("~")
-dev3 = devolper("Yurec", "Java Script", "Claude")
-print("~")
+# print("~")
+# dev1 = devolper("Igor", "Python")
+# print("~")
+# dev2 = devolper("Anton", "C++", "Codex")
+# print("~")
+# dev3 = devolper("Yurec", "Java Script", "Claude")
+# print("~")
+
+#--------------------------------------------------------------------------
+
+class bus:
+    num = None
+    EndP = None
+    pidor = None
+
+    def __init__(self, num = None, EndP = None, pidor = None):
+        self.num = num
+        self.EndP = EndP
+        self.pidor = pidor
+
+    def inf(self):
+        print(f"автобус номер {self.num} едет до {self.EndP}, а его водитель {self.pidor} ")
+
+first = bus(112, "северного", "пидорас гнойный")
+
+second = bus(15, "секса", "норм мужик")
+
+third = bus(127, "хуй его знает", "хуй знает кто")
+
+# first.inf()
+# print("~")
+# second.inf()
+# print("~")
+# third.inf()
+
+numbus = input("напиши номер автобуса: (15/112/127)")
+
+error = True
+while error != False:
+    try:
+        numbus = float(numbus)
+        if numbus not in [112, 15, 127]:
+            print("такого автобуса я не знаю")
+            error = True
+            numbus = input("напиши номер автобуса: ")
+        if numbus == 112:
+            first.inf()
+            error = False
+        elif numbus == 15:
+            second.inf()
+            error = False
+        elif numbus == 127:
+            third.inf()
+            error = False
+    except:
+        print("че за хуйню ты написал?")
+        numbus = input("напиши номер автобуса: ")
+
+
+
