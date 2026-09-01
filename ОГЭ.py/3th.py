@@ -62,9 +62,9 @@
 
 # НЕ (x < 5) И (x > 2)
 
-for x in range(1, 100):
-    if not (x < 5) and (x > 2):
-        pass
-    else:
-        print(x)
-        break
+# for x in range(1, 100):
+#     if not (x < 5) and (x > 2):
+#         pass
+#     else:
+#         print(x)
+#         break
