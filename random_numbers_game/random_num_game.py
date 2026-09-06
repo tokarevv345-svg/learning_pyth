@@ -9,7 +9,7 @@ end = Style.RESET_ALL
 list = []
 att_times = 0
 a = None
-current = random.randint(1, 100)
+current = int(random.randint(1, 100))
 print("загаданно число от 1 до 100 - угадай его !")
 def testnum():
     err = True

@@ -30,8 +30,9 @@ print(Fore.YELLOW + "нажмите \"Enter\" чтобы крутить руле
 while win != True:
     input()
     attempt += 1
+    print("-----------------------")
     slots = random.choices(positions, k=3)
-    print(slots)
+    print(*slots)
     if len(set(slots)) == 1:
         print(Fore.GREEN + "вы победили!" + EndColor)
         print(f"ваше кол-во попыток: {attempt}")
